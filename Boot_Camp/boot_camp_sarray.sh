@@ -28,12 +28,12 @@
 ###############################################################################
 
 # Name of the job - You'll probably want to customize this.
-#SBATCH --job-name=boot_camp_demo
+#SBATCH --job-name=es_bootcamp_hw0
 #SARRAY --range=0,1-19
 
 # Standard out and Standard Error output files with the job number in the name.
-#SBATCH -o slurm_%j.out
-#SBATCH -e slurm_%j.err
+#SBATCH --output=dump/slurm_%j.out
+#SBATCH --error=dump/slurm_%j.err
 
 # Execute each of the jobs with a different index (the python script will then process
 # this to do something different for each index):
