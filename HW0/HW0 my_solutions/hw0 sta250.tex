@@ -1,0 +1,61 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage{theusual}
+
+\DeclareMathOperator*{\Var}{Var}
+
+\def\f{\mathbf f}
+\def\xx{{\bs{\xi}}}
+\newcommand\ndots[1]{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily $ #1$}}}{\cdots}}}
+\def\E{\mathbb{E}}
+
+\begin{document}
+
+\hfill\textbf{\large Homework Assignment 0}
+
+\hfill\textbf{Eugene Shvarts}
+
+\hfill\textbf{ Stats 250 -- Baines -- Fall 2013 -- UC Davis}
+\bigskip
+
+\textbf{Problem \#1} \\ \textsf{Code attached.}
+\bigskip
+
+\textbf{Problem \#2} \\ \textsf{Code attached.} \\
+Given that $u = y \cos x$ and $v = y \sin x$, then $r = \sqrt{u^2+v^2}$ has the same distribution as $y$, which is Unif$([0,1])$. Hence, we expect the magnitude of $(u,v)$ to be uniformly distributed between 0 and 1; as the angle is uniformly distributed as well, these points are just uniform over the unit circle.
+\bigskip
+
+\textbf{Problem \#3} \\ \textsf{Code attached.} 
+\bigskip
+
+\textbf{Problem \#4} \\ \textsf{boot\_camp\_sarray.sh} run successfully. 
+\bigskip
+
+\textbf{Problem \#5} \\ Twitter crawl code performed successfully; updates for finding the fraction of tweets and new plot added to GitHub repo. Roughly 1/3 of users had explicit geotags. My plot had lots of negative sentiments, clustered around the East coast. As I ran it around 4 AM PST, on the weekend before finals, I can imagine why that might be the case.
+\bigskip
+
+\textbf{Problem \#6} \\ \textsf{Code attached.} 
+\bigskip
+
+\textbf{Problem \#7} \\ \textsf{Code attached.} \\
+For the importance sampling computation, we note that for $Z \sim TN(0,1;A)$ with $A$ some interval, denoting $\phi$ for the density of $N(0,1)$, 
+$$
+\mathbb{E}[Z] = \frac{\int x\phi(x) \1_A(x)\,dx}{\int \phi(x) \1_A(x)\,dx} = \frac{\E_U[x\phi]}{E_U[\phi]} ~~,
+$$
+where the expectation is taken with respect to the uniform distribution on $A$. Hence, for sufficiently large $N$, we can always satisfy a tolerance $\epsilon$ so that for $x_n \sim U(A)$, 
+$$
+\mathbb{E}[Z] \approx \dfrac{\sum_n^N x_n \phi(x_n)}{\sum_n^N \phi(x_n)}~~.
+$$
+\bigskip
+
+\textbf{Problem \#8} \\  \textsf{Code attached.}
+\bigskip
+
+\textbf{Problem \#9} \\ Uploading to GitHub straightaway!
+
+
+
+\pagebreak
+%\input{aux1-201c}
+
+\end{document}

@@ -28,6 +28,7 @@ def hw(sent_file,tweet_file,verbose=False,geo_verbose=False):
     tscores = []
     line_ctr = 0
     tweet_key = u'text'
+    num_geos = 0
     for line in tweets:
         json_tweet = json.loads(line)
         #if verbose:
@@ -67,7 +68,7 @@ def hw(sent_file,tweet_file,verbose=False,geo_verbose=False):
             ########################################
             # Location stuff...
             ########################################
-            geo_key = u'geo'
+	    geo_key = u'geo'
             type_key = u'type'
             point_key = u'Point'
             coord_key = u'coordinates'
@@ -79,7 +80,8 @@ def hw(sent_file,tweet_file,verbose=False,geo_verbose=False):
                     #{u'type': u'Point', u'coordinates': [29.64896515, -82.35765414]}
                     if type_key in geo_stuff:
                         if geo_stuff[type_key] == point_key:
-                            if verbose:
+                            num_geos += 1
+			    if verbose:
                                 print "Geo stuff has co-ordinates..."
                             print str(tmp_score) + "," + str(geo_stuff[coord_key][0]) + "," + str(geo_stuff[coord_key][1])
                 else:
@@ -96,6 +98,8 @@ def hw(sent_file,tweet_file,verbose=False,geo_verbose=False):
         line_ctr = line_ctr+1
     if verbose:
         print "Finished computing (new) sentiments for all tweets! :)"
+    	frac = num_geos / len(tweets)
+    	print "The fraction of tweets with geo-coordinates is " + str(num_geos) +" / " + str(len(tweets)) + "=" + str(frac)
 
 def lines(fp):
     print str(len(fp.readlines()))
